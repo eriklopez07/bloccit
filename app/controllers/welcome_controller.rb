@@ -11,5 +11,9 @@ class WelcomeController < ApplicationController
 
   end
 
+  def fqa
+
+  end
+
 
 end

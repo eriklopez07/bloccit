@@ -16,4 +16,11 @@ RSpec.describe WelcomeController, type: :controller do
     end
   end
 
+  describe "GET fqa" do
+    it "renders the fqa template" do
+      get :fqa
+      expect(response).to render_template("fqa")
+    end
+  end
+
 end
