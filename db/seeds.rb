@@ -24,3 +24,13 @@ include RandomData
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
+
+10.times do
+  Advertisement.create!(
+  title: RandomData.random_sentence,
+  text: RandomData.random_paragraph
+  price: RandomData.random_price
+  )
+end
+puts "Seeds finished"
+puts "#{Advertisement.count} Ads created"
