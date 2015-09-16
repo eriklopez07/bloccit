@@ -4,7 +4,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def show
-    @Advertisement = Advertisement.find(params[:id])
+    @advertisement = Advertisement.find(params[:id])
   end
 
   def new
@@ -12,17 +12,17 @@ class AdvertisementsController < ApplicationController
   end
 
   def create
-    @advertisement = Post.new
+    @advertisement = Advertisement.new
     @advertisement.title = params[:advertisement][:title]
     @advertisement.text = params[:advertisement][:copy]
     @advertisement.price = params[:advertisement][:price]
-# #10
+
     if @advertisement.save
-# #11
+
         flash[:notice] = "Your ad was saved."
         redirect_to @advertisement
     else
-# #12
+
         flash[:error] = "There was an error saving your ad. Please try again."
         render :new
       end
