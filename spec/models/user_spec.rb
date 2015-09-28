@@ -30,22 +30,34 @@ RSpec.describe User, type: :model do
   end
 
   describe "invalid user" do
-     let(:user_with_invalid_name) { User.new(name: "", email: "user@bloccit.com") }
-     let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "") }
-     let(:user_with_invalid_email_format) { User.new(name: "Bloccit User", email: "invalid_format") }
+    let(:user_with_invalid_name) { User.new(name: "", email: "user@bloccit.com") }
+    let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "") }
+    let(:user_with_invalid_email_format) { User.new(name: "Bloccit User", email: "invalid_format") }
 
-     it "should be an invalid user due to blank name" do
-       expect(user_with_invalid_name).to_not be_valid
-     end
+    it "should be an invalid user due to blank name" do
+      expect(user_with_invalid_name).to_not be_valid
+    end
 
-     it "should be an invalid user due to blank email" do
-       expect(user_with_invalid_email).to_not be_valid
-     end
+    it "should be an invalid user due to blank email" do
+      expect(user_with_invalid_email).to_not be_valid
+    end
 
-     it "should be an invalid user due to incorrectly formatted email address" do
-       expect(user_with_invalid_email_format).to_not be_valid
-     end
+    it "should be an invalid user due to incorrectly formatted email address" do
+      expect(user_with_invalid_email_format).to_not be_valid
+    end
 
-   end
-   
+  end
+
+  describe "refatcoring username" do
+
+    let(:user_with_invalid_name) { User.new(name: "steve jobs", email: "user@bloccit.com", password:"helloworld") }
+
+    it "should re-format the name" do
+      user_with_invalid_name.save!
+      expect(user_with_invalid_name.name).to eq("Steve Jobs")
+    end
+
+  end
+
+
 end
