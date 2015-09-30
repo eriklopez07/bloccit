@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def verify
+    @user.name = params[:user][:name]
+    @user.email = params[:user][:email]
+  end
+
   def create
     @user = User.new
     @user.name = params[:user][:name]
@@ -19,5 +24,5 @@ class UsersController < ApplicationController
       render :new
       end
     end
-  
+
 end
