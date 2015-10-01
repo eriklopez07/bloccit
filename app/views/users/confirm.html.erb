@@ -3,6 +3,9 @@
 
 <p>Email: <%= @user.email %></p>
 <p>Name: <%= @user.name %></p>
-
+<div class="col-md-4">
 <%= button_to "Yes", {controller: "users", action: "create", params: params}, class: 'btn btn-success' %>
+</div>
+<div class="col-md-4">
 <%= link_to "No", new_user_path, class: 'btn btn-default' %>
+</div>
