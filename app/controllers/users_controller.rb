@@ -5,7 +5,10 @@ class UsersController < ApplicationController
   end
 
   def confirm
-    @user = User.new
+    @user = User.new(user_params)
+  end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
   def create
@@ -23,5 +26,5 @@ class UsersController < ApplicationController
       render :new
       end
     end
-
+  private
 end

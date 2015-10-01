@@ -5,9 +5,7 @@ Rails.application.routes.draw do
       resources :sponsored_posts, except: [:index]
     end
 
-    resources :users, only: [:new, :create] do
-      resources :confirm
-    end  
+    resources :users, only: [:new, :create, :confirm]
 
 
 get 'about' => 'welcome#about'
