@@ -1,6 +1,13 @@
 class User < ActiveRecord::Base
+
+  def self.avatar_url(user, size)
+       gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+       "http://gravatar.com/avatar/#{gravatar_id}.png?s=48"
+  end
+
     before_save { self.email = email.downcase }
     before_save { capitalize_name }
+
 
     def capitalize_name
       name_array = name.split
@@ -22,7 +29,5 @@ class User < ActiveRecord::Base
              format: { with: EMAIL_REGEX }
 
     has_secure_password
-
-
 
 end

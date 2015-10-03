@@ -15,6 +15,8 @@ def create
       end
 end
 
+
+
 def destroy
   destroy_session(current_user)
   flash[:notice] = "You've been signed out, come back soon!"
