@@ -56,12 +56,18 @@ sponsoredposts = SponsoredPost.all
    )
  end
 
- user = User.first
- user.update_attributes!(
- email: 'eriklopez0712@gmail.com',
- password: 'Erik12Lpz1997'
+ admin = User.create!(
+   name:     'Erik Lopez Admin',
+   email:    'eriklopez0712@gmail.com',
+   password: 'Erik12Lpz1997',
+   role:     'Erik12Lpz1997'
  )
 
+ member = User.create!(
+    name:     'Erik Lopez Member',
+    email:    'eriklpzang@gmail.com',
+    password: 'Erik0712Lpz1997'
+  )
 
 
  puts "Seed finished"

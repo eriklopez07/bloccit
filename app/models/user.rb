@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   end
 
     before_save { self.email = email.downcase }
+    before_save { self.role ||= :member }
     before_save { capitalize_name }
+
 
 
     def capitalize_name
@@ -29,5 +31,6 @@ class User < ActiveRecord::Base
              format: { with: EMAIL_REGEX }
 
     has_secure_password
+    enum role: [:member, :admin]
 
 end
