@@ -70,6 +70,5 @@ private
      redirect_to topics_path
    end
  end
- def
 
 end

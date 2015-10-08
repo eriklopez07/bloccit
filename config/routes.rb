@@ -9,7 +9,10 @@ Rails.application.routes.draw do
    post 'users/confirm' => 'users#confirm'
 
   resources :sessions, only: [:new, :create, :destroy]
-  
+
+  resources :posts, only: [] do
+    resources :comments, only: [:create, :destroy]
+  end  
 
 
 get 'about' => 'welcome#about'

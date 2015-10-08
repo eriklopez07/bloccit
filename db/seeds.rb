@@ -51,22 +51,25 @@ sponsoredposts = SponsoredPost.all
  100.times do
    Comment.create!(
  # #4
+    user: users.sample,
      post: posts.sample,
      body: RandomData.random_paragraph
    )
  end
 
  admin = User.create!(
-   name:     'Erik Lopez Admin',
-   email:    'eriklopez0712@gmail.com',
-   password: 'Erik12Lpz1997',
-   role:     'Erik12Lpz1997'
+   name:     'Erik Lopez Adminstrator',
+   email:    'eriklpzang@icloud.com',
+   password: 'bloccit12',
+   role:     'admin'
  )
 
  member = User.create!(
     name:     'Erik Lopez Member',
-    email:    'eriklpzang@gmail.com',
-    password: 'Erik0712Lpz1997'
+    email:    'eriklpzang@bloccit.com',
+    password: 'Erik0712Lpz1997',
+    role: 'member'
+
   )
 
 
