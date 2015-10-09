@@ -13,7 +13,7 @@
      </div>
     <% if current_user %>
       <%= render 'comments/form', comment: Comment.new, post: @post %>
-    <%end%>  
+    <%end%>
    </div>
    <% if user_is_authorized_for_post?(@post) %>
    <div class="col-md-4">
