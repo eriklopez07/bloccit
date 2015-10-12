@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'labels/show'
+
+
     resources :topics do
       resources :posts, except: [:index]
       resources :sponsored_posts, except: [:index]
@@ -12,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :posts, only: [] do
     resources :comments, only: [:create, :destroy]
-  end  
+  end
 
 
 get 'about' => 'welcome#about'
