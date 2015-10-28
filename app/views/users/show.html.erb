@@ -21,10 +21,9 @@
 <h2>Posts</h2>
   <%= if @user.post.any? %>
     <%= render @user.posts %>
-  <% end %>
   <% else %>
     <%= "#{user.name} has not submitted any posts yet." %>
-  <% end %>  
+  <% end %>
  <h2>Comments</h2>
  <%= if @user.comments.any? %>
    <%= render @user.comments %>
