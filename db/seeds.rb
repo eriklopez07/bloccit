@@ -62,7 +62,7 @@ sponsoredposts = SponsoredPost.all
 
  admin = User.create!(
    name:     'Erik Lopez Adminstrator',
-   email:    'eriklpzang@icloud.com',
+   email:    'eriklpzang@bloccit.com',
    password: 'bloccit12',
    role:     'admin'
  )
