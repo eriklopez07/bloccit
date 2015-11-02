@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   before_save { self.role ||= :member }
   before_save { capitalize_name }
 
+  before_create :generate_auth_token
+
   validates :name, length: { minimum: 1, maximum: 100 }, presence: true
   validates :password, presence: true, length: { minimum: 6 }
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -25,6 +27,13 @@ class User < ActiveRecord::Base
        "http://gravatar.com/avatar/#{gravatar_id}.png?s=48"
   end
 
+  def generate_auth_token
+     loop do
+       self.auth_token = SecureRandom.base64(64)
+       break unless User.find_by(auth_token: auth_token)
+     end
+   end
+   
   def capitalize_name
     name_array = name.split
     name_array.each do |n|
